@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GrzUpdate</title>
+    <title>GRZ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,17 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
+    <%= form_tag(destroy_user_session_path, method: :delete, style: 'display: inline-block;') do %>
+    <%= submit_tag "Sign Out" %>
+   <% end %>
+  <% else %>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+    <%= link_to 'Sign In', new_user_session_path %>
+   <% end %>
 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
