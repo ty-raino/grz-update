@@ -10,6 +10,8 @@
   </head>
 
   <body>
+  <%= link_to 'Reviews', reviews_path %>
+  <%= link_to 'Games', games_path %>
   <% if user_signed_in? %>
     <%= form_tag(destroy_user_session_path, method: :delete, style: 'display: inline-block;') do %>
     <%= submit_tag "Sign Out" %>
@@ -21,6 +23,9 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
