@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.first_or_create(email: "t@test.com", password: "password", username: "testy")
+user = User.first_or_create(email: "test@test.com", password: "password", username: "testy")
 
 g1 = Game.find_or_create_by(title: "Call of Duty: Modern Warfare")
 g2 = Game.find_or_create_by(title: "Watch Dogs: Legion")
