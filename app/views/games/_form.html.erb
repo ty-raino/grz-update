@@ -1,0 +1,7 @@
+<%= show_errors_for(game)%>
+
+<%= form_for game do |f| %>
+    <%= f.label :title, "Title"%>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+<% end %>

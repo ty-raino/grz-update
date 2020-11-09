@@ -11,4 +11,4 @@ user = User.first_or_create(email: "test@test.com", password: "password", userna
 g1 = Game.find_or_create_by(title: "Call of Duty: Modern Warfare")
 g2 = Game.find_or_create_by(title: "Watch Dogs: Legion")
 g3 = Game.find_or_create_by(title: "Overwatch")
-g5 = Game.find_or_create_by(title: "Assassin's Creed Odyssey")
+g4 = Game.find_or_create_by(title: "Assassin's Creed Odyssey")
