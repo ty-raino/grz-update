@@ -5,4 +5,7 @@
 <h4><%= @review.rating %><br></h4>
 <%= @review.content %><br>
 
-<%= button_to 'Edit review', edit_review_path(@review), :method => :get %>
+
+<% if user_signed_in? && current_user.id == @review.user_id %>
+    <%= link_to 'Edit review', edit_review_path(@review) %>
+<% end %>

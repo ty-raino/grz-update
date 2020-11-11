@@ -10,6 +10,7 @@
   </head>
 
   <body>
+  
   <%= link_to 'Reviews', reviews_path %>
   <%= link_to 'Games', games_path %>
   <% if user_signed_in? %>
@@ -21,8 +22,6 @@
     <%= link_to 'Sign In', new_user_session_path %>
    <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end %>
