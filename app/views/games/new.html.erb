@@ -1,2 +1,8 @@
 <h1>New Game</h1>
-<%= render partial: 'form', locals: { game: @game } %>
+<%= show_errors_for(@game)%>
+
+<%= form_for @game do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "add title" %>
+    <%= f.submit %>
+<% end %>
