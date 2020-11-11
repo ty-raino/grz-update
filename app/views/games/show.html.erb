@@ -1,4 +1,8 @@
-<h1><%= @game.title %></h1>
-<% if user_signed_in? %>
-    <p><%= button_to 'Edit game', edit_game_path(@game), :method => :get %></p>
+<h1><%= @game.title %></h1><br>
+<ul>
+<% @game.reviews.each do |review| %>
+<li>
+    <%= link_to review.user.username, review_path(review) %>
+</li>
+</ul>
 <% end %>
