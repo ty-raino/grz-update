@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
     has_many :reviews
-    has_many :user, through: :reviews
+    has_many :users, through: :reviews
 
     validates :title, presence: true, uniqueness: true
     validates :title, length: { maximum: 35 }

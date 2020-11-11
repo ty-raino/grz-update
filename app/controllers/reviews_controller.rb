@@ -10,18 +10,32 @@ class ReviewsController < ApplicationController
     end 
 
     def new
+        @review = Review.new
     end
 
-    def create
-    end
+    def create 
+        @review = current_user.reviews.build(reviews_params)
+        if @review.save 
+          redirect_to review_path(@review)
+        else 
+          render :new
+        end
+      end 
 
     def edit
     end
 
-    def update
-    end
+    def update 
+        if @review.update(reviews_params)
+          redirect_to review_path(@review)
+        else 
+          render :edit
+        end
+      end 
 
     def destroy
+        @review.destroy
+        redirect_to reviews_path
     end
 
 private
@@ -31,6 +45,6 @@ private
     end
 
     def reviews_params
-        params.require(:review).permit(:rating, :content, :start_time, :end_time)
+        params.require(:review).permit(:game_id,:rating, :content, :created_at, :updated_at)
     end
 end

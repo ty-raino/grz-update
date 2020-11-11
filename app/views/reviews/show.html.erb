@@ -1,0 +1,8 @@
+<h1><%= @review.game.title %> Review<br></h1>
+
+<h1>By <%= @review.user.username %></h1>
+<h3><%= @review.posted %></h3>
+<h4><%= @review.rating %><br></h4>
+<%= @review.content %><br>
+
+<%= button_to 'Edit review', edit_review_path(@review), :method => :get %>

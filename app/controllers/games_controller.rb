@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-    before_action :set_games, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index, :show]
+    before_action :set_game, only: [:show]
 
     def index
         @games = Game.all
@@ -22,25 +22,9 @@ class GamesController < ApplicationController
         end
     end
 
-    def edit
-    end
-
-    def update
-        if @game.update(games_params)
-            redirect_to game_path(@game)
-        else
-            render :edit
-        end
-    end
-
-    def destroy
-        @game.destroy
-        redirect_to games_path(@game)
-    end
-
 private
 
-    def set_games
+    def set_game
         @game = Game.find(params[:id])
     end
 

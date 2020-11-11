@@ -149,3 +149,6 @@ class Games
 end
 ```
 <!-- root to: "home#index" -->
+
+
+<!-- ask about associations with game -->
