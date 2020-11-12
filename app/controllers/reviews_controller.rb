@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    sort_options 
   end  
 
   def show
@@ -43,6 +44,14 @@ private
 
   def set_reviews
     @review = Review.find(params[:id])
+  end
+
+  def sort_options
+    if params[:sort] == "most_recent"
+      @reviews = @reviews.most_recent
+    elsif params[:sort] == "oldest"
+      @reviews = @reviews.oldest
+    end
   end
 
   def reviews_params

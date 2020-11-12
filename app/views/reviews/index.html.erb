@@ -1,5 +1,13 @@
 <h1>Reviews</h1>
-
+<%= form_tag(reviews_path, method: 'get') do %>
+<label for="sort">Sort</label>
+  <select name="sort">
+    <option <%= 'selected' if params[:sort] == '' %> value="">None</option>
+    <option <%= 'selected' if params[:sort] == 'most_recent' %> value="most_recent">Most Recent</option>
+    <option <%= 'selected' if params[:sort] == 'oldest' %> value="oldest">Oldest</option>
+  </select>
+<%= submit_tag "Sort Results"%>
+<% end %>
 
 <ul>
  <% @reviews.each do |review| %>

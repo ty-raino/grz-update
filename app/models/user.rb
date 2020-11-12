@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_many :comments
   has_many :games, through: :reviews 
   
   # Include default devise modules. Others available are:
