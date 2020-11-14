@@ -151,4 +151,6 @@ end
 <!-- root to: "home#index" -->
 
 
-<!-- ask about associations with game -->
+<!-- ask about nested routes -->
+
+<!-- get assessment prep -->
