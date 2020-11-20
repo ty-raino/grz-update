@@ -1,14 +1,16 @@
 <%= show_errors_for(review)%>
-<ul>
+
     <%= form_for review do |f| %>
-    <%= f.collection_select :game_id, Game.all, :id, :title, include_blank: true %>
-<li>
-    <%= f.label :rating %>
-    <%= f.text_field :rating, placeholder: "rating (1-5)" %><br>
-    <%= f.label :content %>
-    <%= f.text_area :content, placeholder: "content" %>
+      <%= f.collection_select :game_id, Game.all, :id, :title, include_blank: "Choose a game" %>
+    <p> </p>
+    <%= f.text_field :rating, placeholder: "Rating (1-5)" %>
+    <p> </p>
+        <div class="form-group">
+            <div class="textarea">
+          <%= f.text_area :content, class: "form-control", placeholder: "Write your review..." %>
+          </div>
+        </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
- </li>   
-<%= f.submit %>
-</ul>
+ <br>
+<%= f.submit class: "btn btn-primary"  %>
 <% end %>

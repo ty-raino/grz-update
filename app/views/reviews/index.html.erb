@@ -1,20 +1,25 @@
+<br>
 <h1>Reviews</h1>
+
 <%= form_tag(reviews_path, method: 'get') do %>
-<label for="sort">Sort</label>
+<label for="sort">Sort by</label>
   <select name="sort">
     <option <%= 'selected' if params[:sort] == '' %> value="">None</option>
     <option <%= 'selected' if params[:sort] == 'most_recent' %> value="most_recent">Most Recent</option>
     <option <%= 'selected' if params[:sort] == 'oldest' %> value="oldest">Oldest</option>
   </select>
-<%= submit_tag "Sort Results"%>
+<%= submit_tag "Sort Results", class: "btn btn-outline-primary btn-sm"%>
 <% end %>
+<br>
+<%= link_to 'Create a Review', new_review_path, class: "btn btn-primary" %>
 
+<p> </p>
 <ul>
  <% @reviews.each do |review| %>
     <li>
         <%= link_to review.game.title, review_path(review) %>
+        ・ <%=review.user.username%>
     </li>
  <% end %>
 </ul>
 
-<%= link_to 'Create a Review', new_review_path %>

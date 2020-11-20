@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :games
+  resources :games do 
+    resources :reviews, only: [:index, :new]
+  end
   resources :comments
   resources :reviews
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

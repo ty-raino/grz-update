@@ -4,7 +4,7 @@ class Review < ApplicationRecord
 
   validates :rating, presence: true
   validates :rating, :inclusion => { :in => 1..5, :message => " should be between 1 to 5" }
-  validates :content, presence: true, length: { maximum: 130 }
+  validates :content, presence: true, length: { maximum: 600 }
 
   # sort by good rating and bad rating or filter <= 3 = bad rating, >= 3 = good rating
 
@@ -22,5 +22,13 @@ class Review < ApplicationRecord
 
   def self.oldest
     order(created_at: :asc)
+  end
+
+  def self.high_rating
+    order(rating: :desc)
+  end
+
+  def self.low_rating
+    order(rating: :asc)
   end
 end

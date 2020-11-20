@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+ .wrapper {
+    margin-right: auto; /* 1 */
+    margin-left:  auto; /* 1 */
+
+    max-width: 950px; /* 2 */
+   
+    padding-right: 10px; /* 3 */
+    padding-left:  10px; /* 3 */
+}
+
+footer.branding {
+    border-top: 2px solid #ccc;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+.textarea {
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    height: 82px;
+    
+}

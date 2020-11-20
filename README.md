@@ -154,3 +154,5 @@ end
 <!-- ask about nested routes -->
 
 <!-- get assessment prep -->
+
+games/game_id/reviews - index, to show all reviews for a specific game

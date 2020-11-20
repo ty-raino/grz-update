@@ -1,4 +1,7 @@
 <h1><%= @game.title %></h1><br>
+    <% if @game.reviews.empty? %>
+        Be the first to make a <u><%= link_to 'review', new_game_review_path(@game) %></u>
+    <% else %>
 <ul>
 <% @game.reviews.each do |review| %>
 <li>
@@ -6,3 +9,4 @@
 </li>
 </ul>
 <% end %>
+<% end %> 

@@ -9,25 +9,22 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <%= render partial: 'shared/navbar' %>
   
-  <%= link_to 'Reviews', reviews_path %>
-  <%= link_to 'Games', games_path %>
-  <% if user_signed_in? %>
-    <%= form_tag(destroy_user_session_path, method: :delete, style: 'display: inline-block;') do %>
-    <%= submit_tag "Sign Out" %>
-   <% end %>
-  <% else %>
-    <%= link_to 'Sign Up', new_user_registration_path %>
-    <%= link_to 'Sign In', new_user_session_path %>
-   <% end %>
-
+  <body>
+  <div class="wrapper">
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end %>
 
-    <%= render "layouts/header" %>
     <%= yield %>
-    <%= render "layouts/footer" %>
+    
+    <footer class="branding">
+      <small>&copy; 2020 <strong>GRZ</strong></small>
+      <a href="https://dev.to/tyraino">
+        <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="royalterminal_'s DEV Profile" height="30" width="30">
+      </a>
+    </footer>
   </body>
+  </div>
 </html>
