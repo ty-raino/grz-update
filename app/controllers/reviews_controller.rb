@@ -2,9 +2,10 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_reviews, only: [:show, :edit, :update, :destroy]
   before_action :review_owner, only: [:edit, :update, :destroy]
-  before_action :nested, only: [:index, :new]
+  
 
   def index
+    @game = Game.find_by_id(params[:game_id])
     if @game
       @reviews = @game.reviews
     else
@@ -17,6 +18,7 @@ class ReviewsController < ApplicationController
   end 
 
   def new
+    @game = Game.find_by_id(params[:game_id])
     if @game
       @review = @game.reviews.build
     else
@@ -52,10 +54,6 @@ class ReviewsController < ApplicationController
   end
 
 private
-
-  def nested
-    @game = current_user.games.find_by_id(params[:user_id])
-  end
 
   def set_reviews
     @review = Review.find(params[:id])

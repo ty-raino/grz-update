@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :games do 
-    resources :reviews, only: [:index, :new]
+    resources :reviews, only: [:new, :show]
   end
   resources :comments
   resources :reviews

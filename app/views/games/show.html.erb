@@ -5,7 +5,7 @@
 <ul>
 <% @game.reviews.each do |review| %>
 <li>
-    <%= link_to review.user.username, review_path(review) %>
+    <%= link_to review.user.username, game_review_path(review) %>
 </li>
 </ul>
 <% end %>
