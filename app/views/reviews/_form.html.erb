@@ -3,9 +3,9 @@
     <%= form_for review do |f| %>
       <%= f.collection_select :game_id, Game.all, :id, :title, include_blank: "Choose a game" %>
     <p> </p>
-    <%= f.text_field :rating, placeholder: "Rating (1-5)" %>
+<div class="form-group">
+    <%= f.text_field :rating, placeholder: "Rating (1-5)", class: "form-control" %>
     <p> </p>
-        <div class="form-group">
             <div class="textarea">
           <%= f.text_area :content, class: "form-control", placeholder: "Write your review..." %>
           </div>

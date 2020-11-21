@@ -1,8 +1,12 @@
-<h1>New Game</h1>
+<br>
+<h1>Create a new game</h1>
 <%= show_errors_for(@game)%>
 
-<%= form_for @game do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder: "add title" %>
-    <%= f.submit %>
+<br>
+<div class="form-group">
+    <%= form_for @game do |f| %>
+        <%= f.text_field :title, placeholder: "Add title", class: "form-control" %>
+        <br>
+        <%= f.submit class: "btn btn-primary" %>
+</div>
 <% end %>

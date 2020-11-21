@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_reviews, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :review_owner, only: [:edit, :update, :destroy]
-  
 
   def index
     @game = Game.find_by_id(params[:game_id])
@@ -27,7 +26,7 @@ class ReviewsController < ApplicationController
   end
 
   def create 
-    @review = current_user.reviews.build(reviews_params)
+    @review = current_user.reviews.build(review_params)
     if @review.save 
       redirect_to review_path(@review)
     else 
@@ -39,7 +38,7 @@ class ReviewsController < ApplicationController
   end
 
   def update 
-    if @review.update(reviews_params)
+    if @review.update(review_params)
       flash[:success] = "Review updated"
       redirect_to review_path(@review)
     else 
@@ -55,7 +54,7 @@ class ReviewsController < ApplicationController
 
 private
 
-  def set_reviews
+  def set_review
     @review = Review.find(params[:id])
   end
 
@@ -67,7 +66,7 @@ private
     end
   end
 
-  def reviews_params
+  def review_params
     params.require(:review).permit(:game_id, :user_id, :rating, :content, :created_at, :updated_at)
   end
   

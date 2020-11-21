@@ -12,7 +12,11 @@
 <% end %>
 <br>
 <%= link_to 'Create a Review', new_review_path, class: "btn btn-primary" %>
-
+<br>
+<br>
+<% if @reviews.empty?%>
+  Be the first to make a review!
+<% else %>
 <p> </p>
 <ul>
  <% @reviews.each do |review| %>
@@ -20,6 +24,7 @@
         <%= link_to review.game.title, review_path(review) %>
         ・ <%=review.user.username%>
     </li>
+ <% end %>
  <% end %>
 </ul>
 

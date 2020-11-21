@@ -1,8 +1,9 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2
+      byebug
       user = User.from_google(from_google_params)
       
-      if user.present?
+      if user.persisted?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
         sign_in_and_redirect user, event: :authentication
@@ -25,6 +26,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     private
   
     def from_google_params
+    
       @from_google_params ||= {
         uid: auth.uid,
         email: auth.info.email,
