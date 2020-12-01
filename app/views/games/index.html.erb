@@ -1,16 +1,17 @@
 <br>
-<h1>Games</h1>
-<%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
 
+<div class="addgame">
+    <%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
+</div>
+    <h1>Games</h1>
 <p> </p>
-
 <ul>
  <% @games.each do |game| %>
     <li>
         <%= link_to game.title, game_path(game) %> 
 
         <% unless game.reviews.empty? %>
-        <%= game.reviews.count %> reviews 
+        <%= pluralize game.reviews.count, "review" %>
         <% end %>
     </li>
  <% end %>

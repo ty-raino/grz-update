@@ -36,3 +36,8 @@ footer.branding {
     height: 82px;
     
 }
+
+.addgame {
+  position: relative;
+  right: -950px;
+}

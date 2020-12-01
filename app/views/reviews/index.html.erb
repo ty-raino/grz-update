@@ -22,7 +22,7 @@
  <% @reviews.each do |review| %>
     <li>
         <%= link_to review.game.title, review_path(review) %>
-        ・ <%=review.user.username%>
+        ・ <%=review.user.username || review.user.full_name%>
     </li>
  <% end %>
  <% end %>

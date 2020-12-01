@@ -9,7 +9,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, 
          :omniauthable, omniauth_providers: [:google_oauth2]
          def self.from_google(uid:, email:, full_name:, avatar_url:)
-          byebug
           if user = User.find_by(email: email)
             user.update(uid: uid, full_name: full_name, avatar_url: avatar_url) unless user.uid.present?
             user

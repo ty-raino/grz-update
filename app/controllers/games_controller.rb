@@ -14,7 +14,7 @@ class GamesController < ApplicationController
     end
 
     def create
-        @game = Game.new(games_params)
+        @game = Game.new(game_params)
         if @game.save
             redirect_to game_path(@game)
         else
@@ -28,11 +28,7 @@ private
         @game = Game.find(params[:id])
     end
 
-    def games_params
+    def game_params
         params.require(:game).permit(:title)
     end
 end
-
-
-# if @game.errors[:name].any?
-# display here
